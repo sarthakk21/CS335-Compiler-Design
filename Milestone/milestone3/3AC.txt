@@ -1,0 +1,181 @@
+add:
+	popparam a
+	popparam b
+	t0 = a + b
+	push t0
+	return
+	
+
+power:
+	popparam c
+	popparam d
+	t1 = 1
+	result = t1
+	L0: 
+	t2 = 0
+	t3 = d > t2
+	ifz t3 goto L1
+	t4 = result * c
+	result = t4
+	t5 = 1
+	t6 = d - t5
+	d = t6
+	goto L0
+	L1: 
+	push result
+	return
+	
+
+sum_of_powers:
+	popparam e
+	popparam f
+	t7 = 0
+	g = t7
+	t8 = 0
+	h = t8
+	t9 = 0
+	k = t9
+	t10 = 0
+	t11 = f == t10
+	ifz t11 goto L3
+	t12 = 0
+	push t12
+	return
+	goto L2
+	L3: 
+	t13 = 1
+	t14 = f - t13
+	g = t14
+	pushparam e
+	pushparam f
+	stackpointer +xxx
+	call power 2
+	stackpointer -yyy
+	t15 = popparam
+	h = t15
+	pushparam e
+	pushparam g
+	stackpointer +xxx
+	call sum_of_powers 2
+	stackpointer -yyy
+	t16 = popparam
+	k = t16
+	pushparam h
+	pushparam k
+	stackpointer +xxx
+	call add 2
+	stackpointer -yyy
+	t17 = popparam
+	push t17
+	return
+	L2: 
+	
+
+fibonacci:
+	popparam n
+	t18 = 2
+	i = t18
+	t19 = 3
+	j = t19
+	t20 = 0
+	t21 = n < t20
+	ifz t21 goto L6
+	t23 = -1
+	push t23
+	return
+	goto L5
+	L6: 
+	t24 = 0
+	t25 = n == t24
+	ifz t25 goto L7
+	t26 = 0
+	push t26
+	return
+	goto L5
+	L7: 
+	t27 = 1
+	t28 = n == t27
+	ifz t28 goto L8
+	t29 = 1
+	push t29
+	return
+	goto L5
+	L8: 
+	t30 = 2
+	t31 = n == t30
+	ifz t31 goto L9
+	t32 = 1
+	push t32
+	return
+	goto L5
+	L9: 
+	t33 = 1
+	t34 = n - t33
+	pushparam t34
+	stackpointer +xxx
+	call fibonacci 1
+	stackpointer -yyy
+	t35 = popparam
+	t36 = 2
+	t37 = n - t36
+	pushparam t37
+	stackpointer +xxx
+	call fibonacci 1
+	stackpointer -yyy
+	t38 = popparam
+	t39 = t35 + t38
+	res = t39
+	push res
+	return
+	L5: 
+	
+
+main:
+	t40 = 10
+	n = t40
+	pushparam n
+	stackpointer +xxx
+	call fibonacci 1
+	stackpointer -yyy
+	t41 = popparam
+	result = t41
+	t42 = "Fibonacci number at position 10 is: "
+	pushparam t42
+	stackpointer +xxx
+	call print 1
+	stackpointer -yyy
+	pushparam result
+	stackpointer +xxx
+	call print 1
+	stackpointer -yyy
+	t43 = 3
+	first = t43
+	t44 = 4
+	second = t44
+	pushparam first
+	pushparam second
+	stackpointer +xxx
+	call sum_of_powers 2
+	stackpointer -yyy
+	t45 = popparam
+	result_second = t45
+	t46 = "Sum of powers for base 3 up to the exponent 4 is: "
+	pushparam t46
+	stackpointer +xxx
+	call print 1
+	stackpointer -yyy
+	pushparam result_second
+	stackpointer +xxx
+	call print 1
+	stackpointer -yyy
+	
+
+t47 = "__main__"
+t48 = __name__ == t47
+ifz t48 goto L12
+stackpointer +xxx
+call main 0
+stackpointer -yyy
+t49 = popparam
+L12: 
+L11: 

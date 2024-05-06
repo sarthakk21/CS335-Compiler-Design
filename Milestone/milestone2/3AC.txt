@@ -1,0 +1,89 @@
+class A:
+	begin class
+	function __init__ :
+		begin func: 
+		t0 = 1
+		self.x1 = t0
+		t1 = 3.14
+		self.y1 = t1
+		end func: 
+	function fu1 :
+		begin func: 
+		popparam a
+		popparam b
+		a = self.x1
+		b = self.y1
+		t2 = 0
+		push t2
+		return
+		end func: 
+	end class: 
+class B:
+	begin class
+	function __init__ :
+		begin func: 
+		t3 = 1
+		self.x2 = t3
+		t4 = 3.14
+		self.y2 = t4
+		t5 = "I am new"
+		self.z2 = t5
+		stackpointer +xxx
+		call A.__init__ 2
+		stackpointer -yyy
+		t6 = popparam
+		end func: 
+	function fu :
+		begin func: 
+		popparam a
+		popparam b
+		a = self.x1
+		b = self.y2
+		stackpointer +xxx
+		call A.fu1 3
+		stackpointer -yyy
+		t7 = popparam
+		push self.z2
+		return
+		end func: 
+	end class: 
+function foo :
+	begin func: 
+	popparam c
+	popparam d
+	push c
+	return
+	end func: 
+function main :
+	begin func: 
+	stackpointer +xxx
+	call A 0
+	stackpointer -yyy
+	t8 = popparam
+	a = t8
+	stackpointer +xxx
+	call B 0
+	stackpointer -yyy
+	t9 = popparam
+	b = t9
+	t10 = 0
+	i = t10
+	stackpointer +xxx
+	call a.fu1 2
+	stackpointer -yyy
+	t11 = popparam
+	stackpointer +xxx
+	call b.fu 2
+	stackpointer -yyy
+	t12 = popparam
+	f = t12
+	end func: 
+t13 = '__main__'
+t14 = __name__ == t13
+ifz t14 goto L1
+stackpointer +xxx
+call main 0
+stackpointer -yyy
+t15 = popparam
+L1: 
+L0: 

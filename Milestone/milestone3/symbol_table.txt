@@ -1,0 +1,42 @@
+Level 0 Symbol Table: Global
+Name                Type           Size  Offset  Line Total_Args Arg_Num   Token     
+-----------------------------------------------------------
+main                               0     40      48   0          -1        FUNCTION  
+fibonacci           int            0     8       28   1          -1        FUNCTION  
+sum_of_powers       int            0     16      13   2          -1        FUNCTION  
+add                 int            0     16      1    2          -1        FUNCTION  
+power               int            0     16      5    2          -1        FUNCTION  
+    Level 1 Symbol Table: main
+    Name                Type           Size  Offset  Line Total_Args Arg_Num   Token     
+    -----------------------------------------------------------
+    result_second       int            8     32      58   -1         -1        NAME      
+    second              int            8     24      57   -1         -1        NAME      
+    first               int            8     16      56   -1         -1        NAME      
+    result              int            8     8       51   -1         -1        NAME      
+    n                   int            8     0       50   -1         -1        NAME      
+    Level 1 Symbol Table: fibonacci
+    Name                Type           Size  Offset  Line Total_Args Arg_Num   Token     
+    -----------------------------------------------------------
+    res                 int            8     24      45   -1         -1        NAME      
+    j                   int            8     16      31   -1         -1        NAME      
+    i                   int            8     8       30   -1         -1        NAME      
+    n                   int            8     0       28   -1         1         NAME      
+    Level 1 Symbol Table: sum_of_powers
+    Name                Type           Size  Offset  Line Total_Args Arg_Num   Token     
+    -----------------------------------------------------------
+    k                   int            8     32      17   -1         -1        NAME      
+    h                   int            8     24      16   -1         -1        NAME      
+    g                   int            8     16      15   -1         -1        NAME      
+    f                   int            8     8       13   -1         2         NAME      
+    e                   int            8     0       13   -1         1         NAME      
+    Level 1 Symbol Table: add
+    Name                Type           Size  Offset  Line Total_Args Arg_Num   Token     
+    -----------------------------------------------------------
+    b                   int            8     8       1    -1         2         NAME      
+    a                   int            8     0       1    -1         1         NAME      
+    Level 1 Symbol Table: power
+    Name                Type           Size  Offset  Line Total_Args Arg_Num   Token     
+    -----------------------------------------------------------
+    result              int            8     16      7    -1         -1        NAME      
+    d                   int            8     8       5    -1         2         NAME      
+    c                   int            8     0       5    -1         1         NAME      
